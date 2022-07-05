@@ -26,6 +26,7 @@ const fs = require('fs');
  *            - data：文件写入的内容，必选参数。
  *            - options：以什么编码格式来写入文件，默认utf-8，可选参数。
  *            - callback：文件写入完成之后，通过回调函数拿到写入的结果，必选参数。
+ *         fs.writeFile只会创建文件，不会创建目录。
  */
 // fs.writeFile('testWrite.txt', '测试是否写入进去', function(err) {
 //   // 如果写入成功，err 的值为 null
