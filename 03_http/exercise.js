@@ -5,19 +5,19 @@ const fs = require('fs');
 const http = require('http');
 const server = http.createServer();
 let fpath = ''
+let resText = '404 Not Found！'
 
 server.on('request', (req,res) => {
   const url = req.url;
   if (url === '/') {
-    fpath = path.join(__dirname, '/clock/index.html');
+    fpath = path.join(__dirname, './clock/index.html');
   } else {
-    fpath = path.join(__dirname, '/clock',url);
+    fpath = path.join(__dirname, './clock',url);
   }
-  res.setHeader('Content-type', 'text/html;charset=utf-8');
   // 将数据文件读出来
-  fs.readFile(fpath, (err, dataStr) => {
-    if(err) res.end('404 Not Found！')
-    res.end(dataStr)
+  fs.readFile(fpath, 'utf-8', (err, dataStr) => {
+    if(!err) resText = dataStr
+    res.end(resText)
   })
 })
 
