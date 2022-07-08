@@ -1,0 +1,12 @@
+{
+  "name": "my-tools-yn",
+  "version": "1.0.0",
+  "description": "提供了格式化时间、HTMLEscape相关的功能",
+  "main": "index.js",
+  "keywords": [
+    "yn",
+    "dateFormat",
+    "escape"
+  ],
+  "license": "ISC"
+}
