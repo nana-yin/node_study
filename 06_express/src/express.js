@@ -61,4 +61,4 @@ app.get('/user/:id',(req,res) => { // 动态参数
  *    - app.use('/public', express.static('../02_path/clock'))
  *    - 访问public下面的所有文件：http://localhost:3000/public/css/index.css
  */
-app.use('/abc',express.static('../02_path/clock'))
+app.use('/abc',express.static('../../02_path/clock'))
