@@ -29,7 +29,7 @@ app.get('/user/:id',(req,res) => { // 动态参数
    *     - req.query 默认是一个空对象
    *     - 取值：req.query.name    req.query.age
    *   - 动态参数：客户端使用 :参数名 的形式发送到服务器的参数，使用req.params 对象进行访问。
-   *     - req.params 默认是一个空对象
+   *     - req.params 默认是一个空对象（这个并未得到验证，因为动态的参数必须在路径上，不存在就报错）
    *     - 取值：req.params
    *     - 可以查询多个动态参数 app.get('/user/:id/:name',(req,res) => {})
   */

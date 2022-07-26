@@ -53,7 +53,7 @@ app.post('/book', (req,res) => {
 
 
 // 第三方中间件的使用---------------------------------------------------------开始
-// 举例：body-parser中间件
+// 举例：body-parser中间件  --->  解析请求体数据
 // ① 安装：npm i body-parser
 // ② 引入：const parser = require('body-parser')
 // ① 使用：app.use(parser.urlencoded({extended: false}))
