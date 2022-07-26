@@ -13,5 +13,5 @@ app.post('/', (req,res) => {
 })
 
 app.listen(80, () => {
-  console.log('server running on http://127.0.0.1')
+  console.log('server running at http://127.0.0.1')
 })

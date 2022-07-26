@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测试接口跨域问题</title>
+</head>
+<body>
+  <div>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+  </div>
+</body>
+<script>
+  const btnGet = document.getElementById("get");
+  const btnPost = document.getElementById("post");
+
+  // 发送get请求
+  btnGet.addEventListener("click", () => {
+    let xhr = new XMLHttpRequest();
+    xhr.open('get', "http://127.0.0.1/api/list?name=张三&&age=28&&gender=男");
+    xhr.send();
+    xhr.onload = function() {
+      console.log('Get---', JSON.parse(xhr.response))
+    }
+  })
+
+
+  // 发送post请求
+  btnPost.addEventListener("click", () => {
+    let xhr = new XMLHttpRequest();
+    xhr.open('post', "http://127.0.0.1/api/detail");
+    xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+    xhr.send("bookname=西游记&author=吴承恩");
+    xhr.onload = function() {
+      console.log('Post---', JSON.parse(xhr.response))
+    }
+  })
+</script>
+</html>
