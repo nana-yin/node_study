@@ -10,11 +10,13 @@
   <div>
     <button id="get">GET</button>
     <button id="post">POST</button>
+    <button id="delete">DELETE</button>
   </div>
 </body>
 <script>
   const btnGet = document.getElementById("get");
   const btnPost = document.getElementById("post");
+  const btnDelete = document.getElementById("delete");
 
   // 发送get请求
   btnGet.addEventListener("click", () => {
@@ -35,6 +37,16 @@
     xhr.send("bookname=西游记&author=吴承恩");
     xhr.onload = function() {
       console.log('Post---', JSON.parse(xhr.response))
+    }
+  })
+
+  // 发送delete请求
+  btnDelete.addEventListener("click", () => {
+    let xhr = new XMLHttpRequest();
+    xhr.open('delete', "http://127.0.0.1/api/delete");
+    xhr.send();
+    xhr.onload = function() {
+      console.log('Delete---', JSON.parse(xhr.response))
     }
   })
 </script>
