@@ -11,12 +11,14 @@
     <button id="get">GET</button>
     <button id="post">POST</button>
     <button id="delete">DELETE</button>
+    <button id="jsonp">JSONP</button>
   </div>
 </body>
 <script>
   const btnGet = document.getElementById("get");
   const btnPost = document.getElementById("post");
   const btnDelete = document.getElementById("delete");
+  const btnJsonp = document.getElementById("jsonp");
 
   // 发送get请求
   btnGet.addEventListener("click", () => {
@@ -49,5 +51,19 @@
       console.log('Delete---', JSON.parse(xhr.response))
     }
   })
+
+  // 利用jsonp解决跨域问题
+  btnJsonp.addEventListener("click", () => {
+    let url = "http://127.0.0.1/api/jsonp?callback=getData"
+    let scriptTag = document.createElement("script");
+    scriptTag.src = url
+    let head = document.querySelector('head')
+    head.appendChild(scriptTag)
+  })
+
+  // 获取数据的函数
+  function getData(data) {
+    console.log('Jsonp---', data)
+  }
 </script>
 </html>

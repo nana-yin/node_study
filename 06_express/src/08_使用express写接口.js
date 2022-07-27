@@ -1,5 +1,22 @@
 const express  = require("express");
 const app = express();
+
+// 为了防止冲突，必须在配置CORS中间件之前声明JSONP接口，否则JSONP接口会被处理成开启了CORS跨域的接口
+// jsonp 请求，只试用于get
+app.get("/api/jsonp", (req,res) => {
+  // 1、得到函数的名称
+  let callback = req.query.callback;
+  // 2、定义要发送到客户端的数据对象，需要转为json字符串！！！
+  let params = {
+    name: "王五",
+    age: 26
+  }
+  // 3、拼接出一个函数的调用
+  let scriptStr = `${callback}(${JSON.stringify(params)})`
+  res.send(scriptStr)
+})
+
+
 // 解决跨域：npm i cors
 const cors = require("cors");
 // 配置cors
